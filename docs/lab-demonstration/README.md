@@ -52,6 +52,8 @@ The full report contained **20 cmd.exe entries** matching the simulator's immedi
 
 ## 6. Cross-check the process relationship with Procmon
 
+> **Analogy:** Procmon contains the haystack of detailed system activity. ProcessSnap is the metal detector that helps point the analyst toward the needle — the process, PID, parent/child relationship, and time window worth investigating. **ProcessSnap tells you where to look; Procmon tells you what happened there.**
+
 In the original Procmon screenshot, the **Process Start** row identifies cmd.exe PID **3264** with parent PID **2192**. A **Process Create** row records conhost.exe with child PID **6552**.
 
 These observations corroborate the same process chain in ProcessSnap. The displayed Procmon times are truncated, so this screenshot does not independently verify the exact 81.13 ms lifetime.
