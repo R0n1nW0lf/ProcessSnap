@@ -4,6 +4,8 @@
 
 A process can start and exit before an analyst reaches the next checkpoint. In this controlled test, ProcessSnap retained a **79.77 ms console helper** and its parent process, allowing their relationship to be reviewed after both had exited.
 
+> **Analogy:** Procmon contains the haystack of detailed system activity. ProcessSnap is the metal detector that helps point the analyst toward the needle — the process, PID, parent/child relationship, and time window worth investigating. **ProcessSnap tells you where to look; Procmon tells you what happened there.**
+
 I used a benign simulator to exercise process creation, parent/child relationships, synthetic file activity, and local network traffic. No malware samples were used. The simulator's network destinations were restricted to **127.0.0.1**.
 
 > **Development note:** This demonstration is part of ongoing testing. I’m actively improving ProcessSnap, with clearer visual reports and highlighted process activity planned for an upcoming release.
@@ -51,8 +53,6 @@ The full report contained **20 cmd.exe entries** matching the simulator's immedi
 **Evidence limitation:** The executable-path field was “Unknown” in this capture, even where command-line text included a path. Command-line text is useful context, but it is not independently verified executable identity.
 
 ## 6. Cross-check the process relationship with Procmon
-
-> **Analogy:** Procmon contains the haystack of detailed system activity. ProcessSnap is the metal detector that helps point the analyst toward the needle — the process, PID, parent/child relationship, and time window worth investigating. **ProcessSnap tells you where to look; Procmon tells you what happened there.**
 
 In the original Procmon screenshot, the **Process Start** row identifies cmd.exe PID **3264** with parent PID **2192**. A **Process Create** row records conhost.exe with child PID **6552**.
 
