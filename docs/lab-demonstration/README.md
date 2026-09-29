@@ -18,6 +18,20 @@ That is less than one tenth of a second. A short-lived process can start, perfor
 
 > **Important:** The 79.77 ms process shown in this demonstration came from a benign simulator, not a malware sample. It is used here to show the timescale an analyst may need to capture.
 
+### Why this matters for the analyst
+
+A human analyst can overlook one tiny process that slips in and out quickly, especially while reviewing a noisy Procmon trace with many events scrolling by.
+
+ProcessSnap does not claim to replace Procmon or see evidence that Procmon cannot record. Its value is different: it preserves process-lifecycle evidence in a focused view so short-lived activity is easier to notice and review afterward.
+
+**In simple terms:**
+
+- **Procmon** provides deep event detail.
+- **ProcessSnap** helps surface the process, PID, parent/child relationship, and time window worth investigating.
+- **Together**, they reduce the chance that a brief process is overlooked during manual review.
+
+> **ProcessSnap helps prevent the analyst from overlooking something Procmon may already have recorded.**
+
 I used a benign simulator to exercise process creation, parent/child relationships, synthetic file activity, and local network traffic. No malware samples were used. The simulator's network destinations were restricted to **127.0.0.1**.
 
 > **Development note:** This demonstration is part of ongoing testing. I’m actively improving ProcessSnap, with clearer visual reports and highlighted process activity planned for an upcoming release.
