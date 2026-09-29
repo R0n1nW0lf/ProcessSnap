@@ -6,6 +6,18 @@ A process can start and exit before an analyst reaches the next checkpoint. In t
 
 > **Analogy:** Procmon contains the haystack of detailed system activity. ProcessSnap is the metal detector that helps point the analyst toward the needle — the process, PID, parent/child relationship, and time window worth investigating. **ProcessSnap tells you where to look; Procmon tells you what happened there.**
 
+### How fast can a process disappear?
+
+The example helper process in this controlled lab lasted only **79.77 milliseconds**:
+
+```text
+79.77 ms = 0.07977 seconds
+```
+
+That is less than one tenth of a second. A short-lived process can start, perform work, and terminate before an analyst has time to notice it manually. Real malware can also create very short-lived child or helper processes, which is why preserving lifecycle evidence and exact timestamps matters.
+
+> **Important:** The 79.77 ms process shown in this demonstration came from a benign simulator, not a malware sample. It is used here to show the timescale an analyst may need to capture.
+
 I used a benign simulator to exercise process creation, parent/child relationships, synthetic file activity, and local network traffic. No malware samples were used. The simulator's network destinations were restricted to **127.0.0.1**.
 
 > **Development note:** This demonstration is part of ongoing testing. I’m actively improving ProcessSnap, with clearer visual reports and highlighted process activity planned for an upcoming release.
