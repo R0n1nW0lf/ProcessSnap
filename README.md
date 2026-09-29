@@ -6,6 +6,10 @@
 
 ProcessSnap is designed to make short-lived and easy-to-miss process activity easier to review after a controlled test. It records process activity continuously between analyst-controlled checkpoints so processes that appear and disappear quickly are still preserved for later analysis.
 
+## Lab Demonstration
+
+[See the benign lab demonstration](docs/lab-demonstration/README.md): follow BEGIN → MID → FINAL, review a 79.77 ms process, and compare the evidence with Procmon and Wireshark.
+
 ## Current Status
 
 **Public alpha release repository**
